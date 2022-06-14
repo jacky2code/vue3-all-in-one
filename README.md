@@ -388,3 +388,51 @@ VsCode Vue3 插件推荐 Vue Language Features (Volar)
 
 - 一个 `*.vue` 文件可以包含多个 `<style>` 标签。
 - `<style>` 标签可以通过 `scoped` 或 `module` attribute (更多详情请查看 [SFC 样式特性](https://v3.cn.vuejs.org/api/sfc-style)) 将样式封装在当前组件内。多个不同封装模式的 `<style>` 标签可以在同一个组件中混
+
+
+
+## 第四章 模板语法 & Vue 指令
+
+### 4.1 模板[插值](https://so.csdn.net/so/search?q=插值&spm=1001.2101.3001.7020)语法
+
+- 在 `<script>` 声明一个变量可以直接在`<template>` 使用，用法为 `{{变量名称}}`
+- 编写条件运算
+- 编写运算
+- 操作 API
+
+``` vue
+<template>
+  <div>
+    {{ message }}
+  </div>
+  <div>
+    {{ condition == 0 ? '我是A' : '我是B' }}
+  </div>
+  <div>
+    {{ calculation + 1 }}
+  </div>
+  <div>
+    {{ ApiOpration.split(' ') }}
+  </div>
+</template>
+
+<script setup lang="ts">
+/**
+ * 4.1 插值语法
+ * v- 开头都是vue 的指令
+ */
+// 1. 在 script 声明一个变量可以直接在 templete 使用{{变量名称}} 如下：
+const message: string = "我是A"
+// 2. 模板语法可以编写条件运算
+const condition: number = 1
+// 3. 支持运算
+const calculation: number = 1
+// 4. 支持操作API
+const ApiOpration: string = 'I am Jack .'
+</script>
+
+<style>
+</style>
+```
+
+![image-20220614191400302](https://markdown-res.oss-cn-hangzhou.aliyuncs.com/mdImgs/2022/06/14/20220614191421.png)
