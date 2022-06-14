@@ -174,3 +174,170 @@ render() {
 Setup 函数式编程 也叫vue Hook
 
 例如 ref reactive watch computed toRefs toRaws 我们会在下几个章节详解
+
+
+
+## 第二章 配置环境，NVM及NRM使用
+
+### 2.1 配置环境
+
+#### 2.1.1 安装 nodejs
+
+***装过的同学可以忽略\***
+
+[下载 | Node.js 中文网](http://nodejs.cn/download/current/)
+
+装完之后会有一个命令叫 npm
+
+可以在终端输入npm -v 来检查是否安装成功
+
+![img](https://img-blog.csdnimg.cn/7d2fc2a1c353444b8e9dd56e0f63145f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5ruhenM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+#### 2.1.2 构建 Vite 项目
+
+官方文档[开始 {#getting-started} | Vite中文网](https://vitejs.cn/guide/#overview)
+
+vite 的优势
+
+ 冷服务  默认的构建目标浏览器是能 [在 script 标签上支持原生 ESM](https://caniuse.com/es6-module) 和 [原生 ESM 动态导入](https://caniuse.com/es6-module-dynamic-import)
+
+ HMR 速度快到惊人的 [模块热更新（HMR）](https://vitejs.cn/guide/features.html#hot-module-replacement)
+
+Rollup打包 它使用 [Rollup](https://rollupjs.org/) 打包你的代码，并且它是预配置的 并且支持大部分rollup插件
+
+使用vite初始化一个项目
+
+- npm
+
+  ``` bash
+  npm init vite@latest
+  ```
+
+- Yarn
+
+  ``` bash
+  yarn create vite
+  ```
+
+项目名称
+![img](https://img-blog.csdnimg.cn/79a9f7a215224aafb904217075b3816b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5ruhenM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+构建的项目模板
+
+![img](https://img-blog.csdnimg.cn/229e41aa7c124fb8a0ed11d89a37e342.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5ruhenM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+切换目录
+
+npm install 安装依赖包
+
+npm run dev 启动
+
+![img](https://img-blog.csdnimg.cn/06271d7048fb4dbda0447badfd4c0e1d.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5ruhenM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+package json 命令解析
+
+``` json
+{
+  "scripts": {
+    "dev": "vite", // 启动开发服务器，别名：`vite dev`，`vite serve`
+    "build": "vite build", // 为生产环境构建产物
+    "preview": "vite preview" // 本地预览生产构建产物
+  }
+}
+```
+
+#### 2.1.3 安装Vue cli 脚手架
+
+``` bash
+npm install @vue/cli -g
+```
+
+检查是否安装成功
+
+![img](https://img-blog.csdnimg.cn/89487aa89f184aa9bd5f90df990a0380.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBA5bCP5ruhenM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+创建项目
+
+``` bash
+vue create <project name>
+```
+
+### 2.2 NVM, NRM 使用
+
+#### 2.2.1 NVM 介绍
+
+NVM全称[node](https://so.csdn.net/so/search?q=node&spm=1001.2101.3001.7020).js version management ，专门针对node版本进行管理的工具，通过它可以安装和切换不同版本的node.js
+
+使用场景
+
+我目前的公司有很多项目，其中有一些老项目用的是vue2.5左右了[webpack](https://so.csdn.net/so/search?q=webpack&spm=1001.2101.3001.7020)版本也比较低，只能使用10.16.0左右的node版本，但是也有一些新项目需要使用高版本的node例如14.17.3左右的这时候就可以使用nvm切换node 版本
+
+##### 1.安装nvm
+
+- windows 
+
+[github](https://so.csdn.net/so/search?q=github&spm=1001.2101.3001.7020)（程序员交友平台）地址
+
+[Releases · coreybutler/nvm-windows · GitHub](https://github.com/coreybutler/nvm-windows/releases)
+
+![img](https://img-blog.csdnimg.cn/7a957dd3e7c7499a88d4de2bcc8db702.png)
+
+- Mac
+
+1.执行以下脚本
+
+``` bash
+sudo curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+```
+
+2.重启电脑 或者是刷新bash文件即可生效
+
+``` bash
+source ~/.bash_profile
+```
+
+##### 2. Nvm 常用命令操作
+
+###### nvm list 查看现在所有安装的node版本
+
+![img](https://img-blog.csdnimg.cn/52b2f2a10a604e4f860e30797d795f23.png)
+
+###### nvm list available 查看nodejs 官方的所有版本
+
+![img](https://img-blog.csdnimg.cn/5e5273181bdf4780ad3ec37b6bc8180e.png)
+
+###### nvm install （版本号）下载对应的node版本号
+
+![img](https://img-blog.csdnimg.cn/474060de2ed7452f99e17525c760796a.png)
+
+###### nvm use 切换node版本
+
+![img](https://img-blog.csdnimg.cn/103768aa0c634639befdfa3277f21862.png)
+
+#### 2.2.2 NRM 介绍
+
+nrm 是一个 npm 源管理器，允许你快速地在 npm源间切换。
+
+##### 1.安装
+
+``` bash
+npm install -g nrm
+```
+
+##### 2.npm常用命令介绍
+
+ ###### nrm ls **查看可选源 星号代表当前使用源**
+
+![img](https://img-blog.csdnimg.cn/fefabc7a1309407a9069339f3f40a184.png)
+
+###### nrm use （源）切换源
+
+![img](https://img-blog.csdnimg.cn/c2085f24803844adac59822266683a48.png)
+
+###### nrm add （名称）（源）
+
+![img](https://img-blog.csdnimg.cn/6bb66c6b99284e79811d1b7ffcf5e455.png)
+
+###### 测试速度 nrm test npm
+
+![img](https://img-blog.csdnimg.cn/bf45982512ef41c2b8f9af22e6ca4694.png)
